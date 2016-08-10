@@ -6,5 +6,6 @@ learn-js-typescript
 
 ```
 npm install -g typescript
+
 tsc helloworld.ts
 ```
