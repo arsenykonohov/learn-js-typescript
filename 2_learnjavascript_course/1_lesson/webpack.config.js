@@ -1,7 +1,7 @@
 "use strict";
 
 
-// NODE_ENV=public webpack - exmple for production;
+// NODE_ENV=public webpack - production build
 const webpack = require("webpack");
 
 const myBuild = {};
@@ -17,7 +17,7 @@ const compressorConfig = {
 
 
 // entries & output prefs:
-myBuild.entry = "./app/main.ts";
+myBuild.entry = "./_src/app.ts";
 
 myBuild.output = {
     path: "./public/script",
@@ -32,13 +32,13 @@ myBuild.watchOptioins = {
 
 myBuild.resolve = {
     modulesDirectories: ["node_modules"],
-    extensions: ["", ".js"]
+    extensions: ["", ".js", ".ts"]
 };
 
 myBuild.resolveLoader = {
     modulesDirectories: ["node_modules"],
     moduleTemplates: ["*-loader"],
-    extensions: ["", ".js"]
+    extensions: ["", ".js", ".ts"]
 };
 myBuild.devtool = NODE_ENV === "dev" ? "cheap-inline-module-source-map" : null
 
@@ -48,12 +48,13 @@ myBuild.plugins = [
     envBuildDefinition
 ];
 
+// NODE_ENV=public webpack - production build
 if (NODE_ENV === "public") {
     myBuild.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: compressorConfig
         })
-    )
+    );
 }
 
 
@@ -65,7 +66,7 @@ myBuild.module = {
     }, {
         test: /\.ts$/,
         loader: 'ts?presets[]=es2015'
-    }, ]
+    }]
 };
 
 
