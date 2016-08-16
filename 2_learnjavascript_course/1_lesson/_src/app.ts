@@ -175,31 +175,57 @@
 
 
 // GENERICS / GENERICS / GENERICS / GENERICS / GENERICS / GENERICS / GENERICS / GENERICS /
-// Example #1:
-function genericFoo<T,L>(title: T, list:L[]): {title: T, list: L[]} {
-    return {
-        title: title,
-        list: list,
-    };
+
+// // Example #1:
+// function genericFoo<T,L>(title: T, list:L[]): {title: T, list: L[]} {
+//     return {
+//         title: title,
+//         list: list,
+//     };
+// }
+// genericFoo<string,string>("blabla", ["wow", "wow", "wow"]);
+// genericFoo<string,number>("blabla", [1234, 324, 0]);
+
+// // Example #2:
+// interface IRepo<T,TId>{
+//     getById(id:TId):T;
+// }
+
+// // Example #3:
+// interface IA<T extends {id:number, name: string}> {
+//     someProp:T;
+// }
+// // let a:IA<{id:number, isFemale:boolean>; // wrong way - Error
+// // we can extend our interface
+// let b:IA<{id:number, isFemale:boolean, name:string}> // right way
+
+
+
+// TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION /
+
+// Example #1: type_A || type_B
+interface IA {
+    a: string;
+    b: string;
 }
-genericFoo<string,string>("blabla", ["wow", "wow", "wow"]);
-genericFoo<string,number>("blabla", [1234, 324, 0]);
-
-// Example #2:
-interface IRepo<T,TId>{
-    getById(id:TId):T;
+interface IB {
+    a: number;
+    b: number;
+    c: number;
 }
-
-
-// Example #3:
-interface IA<T extends {id:number, name: string}> {
-    someProp:T;
+let x: IA | IB;
+x = {
+    a:1,
+    b:2,
+    c:3
+};
+x = {
+    a:"eee",
+    b:"fff",
+    c:"dfa"
 }
-// let a:IA<{id:number, isFemale:boolean>; // wrong way - Error
-// we can extend our interface
-let b:IA<{id:number, isFemale:boolean, name:string}> // right way
-
-
-
-
+let a = x.a;
+let b = x.b;
+let c = x.c; // except it;
+console.log(x);
 
