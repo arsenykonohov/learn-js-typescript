@@ -203,29 +203,41 @@
 
 // TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION / TYPE UNION /
 
-// Example #1: type_A || type_B
+// // Example #1: type_A || type_B
+// interface IA {
+//     a: string;
+//     b: string;
+// }
+// interface IB {
+//     a: number;
+//     b: number;
+//     c: number;
+// }
+// let x: IA | IB;
+// x = {
+//     a:1,
+//     b:2,
+//     c:3
+// };
+// x = {
+//     a:"eee",
+//     b:"fff",
+//     c:"dfa"
+// }
+// let a = x.a;
+// let b = x.b;
+// let c = x.c; // except it;
+// console.log(x);
+
+// Example #2: type_A && type_B
 interface IA {
-    a: string;
-    b: string;
+    a: number;
 }
 interface IB {
-    a: number;
     b: number;
-    c: number;
 }
-let x: IA | IB;
+let x: IA & IB;
 x = {
-    a:1,
-    b:2,
-    c:3
-};
-x = {
-    a:"eee",
-    b:"fff",
-    c:"dfa"
+    a: 1,
+    b: 2
 }
-let a = x.a;
-let b = x.b;
-let c = x.c; // except it;
-console.log(x);
-
