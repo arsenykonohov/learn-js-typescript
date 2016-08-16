@@ -229,15 +229,36 @@
 // let c = x.c; // except it;
 // console.log(x);
 
-// Example #2: type_A && type_B
-interface IA {
-    a: number;
-}
-interface IB {
-    b: number;
-}
-let x: IA & IB;
-x = {
-    a: 1,
-    b: 2
+// // Example #2: type_A && type_B
+// interface IA {
+//     a: number;
+// }
+// interface IB {
+//     b: number;
+// }
+// let x: IA & IB;
+// x = {
+//     a: 1,
+//     b: 2
+// }
+
+
+
+// LOCAL DECLARATION of TYPE / LOCAL DECLARATION of TYPE / LOCAL DECLARATION of TYPE / LOCAL DECLARATION of TYPE /
+function foo(a) {
+    if (a) {
+        interface IA {
+            x: number;
+        }
+        let v: IA = {
+            x: 1
+        };
+    } else {
+        interface IA {
+            x: string;
+        }
+        let v: IA = {
+            x: "sldkfjsa"
+        };
+    }
 }
