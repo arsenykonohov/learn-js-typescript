@@ -38,9 +38,29 @@
 // console.log(getAverage(12, 12, 12, 12, 12));
 
 
+// FUNCTION OVERLOADING / FUNCTION OVERLOADING / FUNCTION OVERLOADING / FUNCTION OVERLOADING / FUNCTION OVERLOADING / FUNCTION OVERLOADING /
+function getAverage(a: number, b: number, c: number): string;
+function getAverage(a: string, b: string, c: string): string;
+// for example you can use this construct when you set certain HTMLelement-types (HTMLinput, etc...)
+function getAverage(a: any, b: any, c: any): string { // unspecial signature
+    // attension "parseInt" has strict type in "lib.d.ts" - typeScript src files
+    let total = parseInt(a, 10) + parseInt(b, 10) + parseInt(c, 10);
+    let average = total / 3;
+    return `Result: ${average}`;
+};
 
+// let someVar = getAverage(12, 23, 34);       // right way
+// and...
+let someVar = getAverage("12", "23", "34"); // this one too
+console.log(someVar);
 
-
+// ----------------------------------------------
+// function getAverage(a: string|nymber, b: any, c: any): string { // unspecial signature 
+//    // you can set "a" param as string or number - right way.
+//    // code here....
+//}
+// let someVar =  getAverage(12, "23", "34");  // in case above
+// ----------------------------------------------
 
 
 
