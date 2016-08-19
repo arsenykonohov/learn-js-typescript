@@ -183,43 +183,77 @@
 
 
 
-// ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS /
+// // ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS /
 
-class Over {
-    overFeature(): string {
-        return "Over!";
+// class Over {
+//     overFeature(): string {
+//         return "Over!";
+//     }
+// }
+
+// // abstract contract:
+// abstract class A extends Over {
+//     abstract getA(): string;
+//     constructor () {
+//         super();
+//     }
+// }
+
+// // interface contract:
+// interface IB {
+//     getB(): string;
+// }
+// interface IC {
+//     getC(): string;
+// }
+
+// class B extends A implements IB, IC {
+//     // abstract implementation:
+//     getA() {
+//         return "A";
+//     }
+//     // interface implementation:
+//     getB() {
+//         return "B";
+//     }
+//     getC() {
+//         return "C";
+//     }
+// }
+
+// let m = new B();
+// console.log(m);
+
+
+
+
+// GETTER & SETTER / GETTER & SETTER / GETTER & SETTER / GETTER & SETTER / GETTER & SETTER / GETTER & SETTER / GETTER & SETTER /
+
+class Account {
+    private _name: string;
+    // ----------------------------------
+    constructor(name) {
+        this._name = name;
+    }
+    // ----------------------------------
+    get name() {
+        return this._name;
+    }
+    // ----------------------------------
+    set name (newName: string) {
+        this._name = newName;
     }
 }
 
-// abstract contract:
-abstract class A extends Over {
-    abstract getA(): string;
-    constructor () {
-        super();
-    }
-}
+let account = new Account("Honey");
+console.log(account);
 
-// interface contract:
-interface IB {
-    getB(): string;
-}
-interface IC {
-    getC(): string;
-}
+account.name = "Bitch";
+console.log(account);
 
-class B extends A implements IB, IC {
-    // abstract implementation:
-    getA() {
-        return "A";
-    }
-    // interface implementation:
-    getB() {
-        return "B";
-    }
-    getC() {
-        return "C";
-    }
-}
 
-let m = new B();
-console.log(m);
+
+
+
+
+
