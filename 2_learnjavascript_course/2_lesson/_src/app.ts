@@ -97,61 +97,62 @@
 
 
 // CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS /
-class MyClass {
-    // public: --------------------------------------------
-    x: number;
-    public y: number;
-    // public: --------------------------------------------
-    publicFooOne(): string {
-        return "public #1";
-    }
-    public publicFooTwo(): string {
-        return "public #2";
-    }
-    // private: --------------------------------------------
-    private m: string;
-    private n: string;
-    // private: --------------------------------------------
-    private privateFoo(): string {
-        return 'private';
-    }
-    // protected: --------------------------------------------
-    protected d: string;
-    protected p: string;
-    // protected: --------------------------------------------
-    protected protectedFoo(): string {
-        return "protected";
-    }
-    // static: --------------------------------------------
-    static STTC: string;
-    static MBST: string;
-    // static: --------------------------------------------
-    static staticFoo(): string {
-        return "static";
-    }
-    // ======================================================
-    constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-    }
-}
 
-class YourClass extends MyClass {
-    i: number;
-    o: number;
-    constructor(i: number, o: number) {
-        super(i, o);
-        // we can use just protected & public method in TS notations, but js... 
-        this.protectedFoo;
-        this.publicFooOne;
-        this.publicFooTwo;
-    }
-}
+// class MyClass {
+//     // public: --------------------------------------------
+//     x: number;
+//     public y: number;
+//     // public: --------------------------------------------
+//     publicFooOne(): string {
+//         return "public #1";
+//     }
+//     public publicFooTwo(): string {
+//         return "public #2";
+//     }
+//     // private: --------------------------------------------
+//     private m: string;
+//     private n: string;
+//     // private: --------------------------------------------
+//     private privateFoo(): string {
+//         return 'private';
+//     }
+//     // protected: --------------------------------------------
+//     protected d: string;
+//     protected p: string;
+//     // protected: --------------------------------------------
+//     protected protectedFoo(): string {
+//         return "protected";
+//     }
+//     // static: --------------------------------------------
+//     static STTC: string;
+//     static MBST: string;
+//     // static: --------------------------------------------
+//     static staticFoo(): string {
+//         return "static";
+//     }
+//     // ======================================================
+//     constructor(x: number, y: number) {
+//         this.x = x;
+//         this.y = y;
+//     }
+// }
 
-let a = new MyClass(43, 12);
-let b = new YourClass(43, 12);
-console.log(a);
-console.log(b);
+// class YourClass extends MyClass {
+//     i: number;
+//     o: number;
+//     constructor(i: number, o: number) {
+//         super(i, o);
+//         // we can use just protected & public method in TS notations, but js... 
+//         this.protectedFoo;
+//         this.publicFooOne;
+//         this.publicFooTwo;
+//     }
+// }
+
+// let a = new MyClass(43, 12);
+// let b = new YourClass(43, 12);
+// console.log(a);
+// console.log(b);
 
 
 
@@ -159,22 +160,66 @@ console.log(b);
 
 // CLASS and INTERFACE equal CONTRACT / CLASS and INTERFACE equal CONTRACT / CLASS and INTERFACE equal CONTRACT /
 
-interface IA {
-    getA(): string;
-}
-interface IB {
-    getB(): string;
-}
-class C implements IA, IB {
-    // private getA() { // TS-Error
-    //     return "A";
-    // }
-    // we can implement only public methods:
-    public getA() {
-        return "A";
-    }
-    public getB() {
-        return "B";
+// interface IA {
+//     getA(): string;
+// }
+// interface IB {
+//     getB(): string;
+// }
+// class C implements IA, IB {
+//     // private getA() { // TS-Error
+//     //     return "A";
+//     // }
+//     // we can implement only public methods:
+//     public getA() {
+//         return "A";
+//     }
+//     public getB() {
+//         return "B";
+//     }
+// }
+
+
+
+
+
+// ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS / ABSTRACT CLASS /
+
+class Over {
+    overFeature(): string {
+        return "Over!";
     }
 }
 
+// abstract contract:
+abstract class A extends Over {
+    abstract getA(): string;
+    constructor () {
+        super();
+    }
+}
+
+// interface contract:
+interface IB {
+    getB(): string;
+}
+interface IC {
+    getC(): string;
+}
+
+class B extends A implements IB, IC {
+    // abstract implementation:
+    getA() {
+        return "A";
+    }
+    // interface implementation:
+    getB() {
+        return "B";
+    }
+    getC() {
+        return "C";
+    }
+}
+
+let m = new B();
+console.log(m);
