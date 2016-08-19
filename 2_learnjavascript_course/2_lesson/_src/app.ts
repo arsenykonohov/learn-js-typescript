@@ -70,27 +70,89 @@
 // // ----------------------------------------------
 
 
-// special overloading signature:
-class Handler {}
-class RandomHandler {}
-class ReversedHandler {}
+// // special overloading signature:
+// class Handler {}
+// class RandomHandler {}
+// class ReversedHandler {}
 
-// type definition:
-function getHandler(a: "Random"): RandomHandler;    // special signature
-function getHandler(a: "Reversed"): RandomHandler;  // special signature
-function getHandler(a: string): Handler;            // unspecial signature required in this case - looks like hack
-// signature with body:
-function getHandler(a: string): Handler {           // special signature
-    switch (a) {
-        case "Random":
-            return new RandomHandler();
-        case "Reversed":
-            return new ReversedHandler();
-        default:
-            return new Handler();
+// // type definition:
+// function getHandler(a: "Random"): RandomHandler;    // special signature
+// function getHandler(a: "Reversed"): RandomHandler;  // special signature
+// function getHandler(a: string): Handler;            // unspecial signature required in this case - looks like hack
+// // signature with body:
+// function getHandler(a: string): Handler {           // special signature
+//     switch (a) {
+//         case "Random":
+//             return new RandomHandler();
+//         case "Reversed":
+//             return new ReversedHandler();
+//         default:
+//             return new Handler();
+//     }
+// };
+// getHandler("Reversed");
+
+
+
+
+
+// CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS / CLASS /
+class MyClass {
+    // public: --------------------------------------------
+    x: number;
+    public y: number;
+    // public: --------------------------------------------
+    publicFooOne(): string {
+        return "public #1";
     }
-};
-getHandler("Reversed");
+    public publicFooTwo(): string {
+        return "public #2";
+    }
+    // private: --------------------------------------------
+    private m: string;
+    private n: string;
+    // private: --------------------------------------------
+    private privateFoo(): string {
+        return 'private';
+    }
+    // protected: --------------------------------------------
+    protected d: string;
+    protected p: string;
+    // protected: --------------------------------------------
+    protected protectedFoo(): string {
+        return "protected";
+    }
+    // static: --------------------------------------------
+    static STTC: string;
+    static MBST: string;
+    // static: --------------------------------------------
+    static staticFoo(): string {
+        return "static";
+    }
+    // ======================================================
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class YourClass extends MyClass {
+    i: number;
+    o: number;
+    constructor(i: number, o: number) {
+        super(i, o);
+        // we can use just protected & public method in TS notations, but js... 
+        this.protectedFoo;
+        this.publicFooOne;
+        this.publicFooTwo;
+    }
+}
+
+let a = new MyClass(43, 12);
+let b = new YourClass(43, 12);
+console.log(a);
+console.log(b);
+
 
 
 
