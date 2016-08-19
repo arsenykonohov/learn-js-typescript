@@ -157,5 +157,24 @@ console.log(b);
 
 
 
+// CLASS and INTERFACE equal CONTRACT / CLASS and INTERFACE equal CONTRACT / CLASS and INTERFACE equal CONTRACT /
 
+interface IA {
+    getA(): string;
+}
+interface IB {
+    getB(): string;
+}
+class C implements IA, IB {
+    // private getA() { // TS-Error
+    //     return "A";
+    // }
+    // we can implement only public methods:
+    public getA() {
+        return "A";
+    }
+    public getB() {
+        return "B";
+    }
+}
 
