@@ -1,5 +1,5 @@
-module InterfaceModule {
-    // interface:
+export module InterfaceModule {
+    // interface - only public methods:
     interface IAnimal {
         name: string;
         danger: number;
